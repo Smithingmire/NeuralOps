@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+:root {
+  --background: #172B36; /* Oceanic Noir */
+  --foreground: #F1F6F4; /* Arctic Powder */
+  
+  --color-oceanic-noir: #172B36;
+  --color-nocturnal-expedition: #114C5A;
+  --color-arctic-powder: #F1F6F4;
+  --color-mystic-mint: #D9E8E2;
+  --color-forsythia: #FFC801;
+  --color-deep-saffron: #FF9932;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  /* Brand colors */
+  --color-brand-bg: #172B36;
+  --color-brand-surface: #114C5A;
+  --color-brand-text-primary: #F1F6F4;
+  --color-brand-text-secondary: #D9E8E2;
+  --color-brand-accent: #FFC801;
+  --color-brand-accent-hover: #FF9932;
+
+  /* Remap common Tailwind utility colors to enforce the new palette site-wide */
+  --color-cyan-500: #FFC801;
+  --color-cyan-400: #FFC801;
+  --color-cyan-300: #FF9932;
+  --color-cyan-600: #FF9932;
+  
+  --color-teal-500: #FFC801;
+  --color-teal-400: #FFC801;
+  --color-teal-300: #FF9932;
+
+  --color-emerald-500: #FFC801;
+  --color-emerald-400: #FFC801;
+
+  --color-indigo-500: #FF9932;
+  --color-indigo-600: #FF9932;
+  --color-indigo-400: #FF9932;
+
+  --color-slate-950: #0a1b24; /* Very dark Oceanic Noir variant */
+  --color-slate-900: #114C5A; /* Nocturnal Expedition */
+  --color-slate-800: #173f4a; /* Nocturnal Expedition variant */
+  --color-slate-700: #1a515d;
+  --color-slate-600: #b0c9bf; /* Mystic Mint variant */
+  --color-slate-500: #D9E8E2; /* Mystic Mint */
+  --color-slate-400: #D9E8E2; /* Mystic Mint */
+  --color-slate-300: #F1F6F4; /* Arctic Powder */
+  --color-slate-200: #F1F6F4;
+  --color-slate-100: #F1F6F4;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Premium Noise Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025; /* 2.5% opacity noise texture */
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #172B36; /* Oceanic Noir */
+}
+::-webkit-scrollbar-thumb {
+  background: #114C5A; /* Nocturnal Expedition */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC801; /* Forsythia */
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(17, 76, 90, 0.4); /* Nocturnal Expedition base */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(17, 76, 90, 0.65);
+  border-color: rgba(255, 200, 1, 0.25); /* Forsythia */
+  box-shadow: 0 0 30px rgba(255, 153, 50, 0.08); /* Deep Saffron glow */
+  transform: translateY(-2px);
+}
+
+.glass-nav {
+  background: rgba(23, 43, 54, 0.85); /* Oceanic Noir base */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Glow effects */
+.radial-glow {
+  background: radial-gradient(circle at center, rgba(255, 153, 50, 0.08) 0%, transparent 70%);
+}
+
+.cyan-neon-glow {
+  box-shadow: 0 0 25px rgba(255, 200, 1, 0.15);
+}
+
+/* CSS Keyframe Animations */
+@keyframes laser-scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes text-shine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation classes */
+.animate-laser-scan {
+  animation: laser-scan 3s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3.5s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+.animate-text-shine {
+  background-size: 200% auto;
+  animation: text-shine 4s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in-fast {
+  from {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-fast {
+  animation: fade-in-fast 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pricing Switch Highlight Animations (No motion, text flash only) */
+@keyframes highlight-flash-price {
+  0% {
+    color: #FFC801; /* Forsythia */
+    text-shadow: 0 0 10px rgba(255, 200, 1, 0.4);
+  }
+  100% {
+    color: #ffffff;
+    text-shadow: none;
+  }
+}
+
+.animate-highlight-price {
+  animation: highlight-flash-price 0.5s ease-out forwards;
+}
+
+@keyframes highlight-flash-note {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-highlight-note {
+  animation: highlight-flash-note 0.4s ease-out forwards;
+}
+
+/* Infinite Testimonial Marquee */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
