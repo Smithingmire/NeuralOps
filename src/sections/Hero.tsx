@@ -184,10 +184,10 @@ export const Hero: React.FC = () => {
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative">
           
           {/* Left Side: Hero Content */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left space-y-6">
+          <div className="lg:col-span-6 flex flex-col items-start text-left space-y-6 relative z-10">
             <ScrollReveal animation="fade">
               {/* Tech Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-xs font-mono font-bold tracking-widest text-brand-accent uppercase">
@@ -260,14 +260,14 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Side: Futuristic 3D AI Core Experience */}
-          <div className="lg:col-span-6 w-full h-[520px] relative flex items-center justify-center select-none z-10">
+          <div className="absolute lg:relative top-1/2 lg:top-auto left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:translate-y-0 w-full h-[320px] sm:h-[420px] lg:h-[520px] flex items-center justify-center select-none z-0 lg:z-10 mt-8 lg:mt-0 opacity-15 lg:opacity-100 pointer-events-none lg:pointer-events-auto transition-all duration-300 lg:col-span-6">
             <ScrollReveal animation="right" delay={200} className="w-full h-full">
               
               <div 
                 ref={containerRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="relative w-full h-full flex items-center justify-center perspective-1200 overflow-visible"
+                className="relative w-full h-full flex items-center justify-center perspective-1200 overflow-visible scale-[0.55] sm:scale-[0.8] lg:scale-100 origin-center transition-transform duration-300"
               >
                 
                 {/* 3D Parallax Viewport container */}
